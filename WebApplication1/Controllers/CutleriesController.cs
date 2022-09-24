@@ -10,16 +10,39 @@ namespace WebApplication1.Controllers
     {
         private readonly CutleryContext _context;
 
+        private static readonly string[] TypeList = new[]
+        {
+        "Fork", "Spoon", "Knife"
+        };
+
+        private static readonly string[] MaterialList = new[]
+        {
+        "Aluminium", "Gold", "Platinum", "Iron"
+        };
         public CutleriesController(CutleryContext context)
         {
             _context = context;
+        }
+
+        private readonly ILogger<CutleriesController> _logger;
+
+        public CutleriesController(ILogger<CutleriesController> logger)
+        {
+            _logger = logger;
         }
 
         // GET: api/Cutleries
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Cutlery>>> GetCutlery()
         {
-            return await _context.Cutlery.ToListAsync();
+            //return await _context.Cutlery.ToListAsync();
+            return Enumerable.Range(1, 5).Select(index => new Cutlery
+            {
+                Id = new(),
+                Type = TypeList[Random.Shared.Next(TypeList.Length)],
+                Material = MaterialList[Random.Shared.Next(MaterialList.Length)]
+            })
+            .ToArray();
         }
 
         // GET: api/Cutleries/5
