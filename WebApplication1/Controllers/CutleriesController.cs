@@ -19,6 +19,7 @@ namespace WebApplication1.Controllers
         {
         "Aluminium", "Gold", "Platinum", "Iron"
         };
+
         public CutleriesController(CutleryContext context)
         {
             _context = context;
@@ -47,7 +48,7 @@ namespace WebApplication1.Controllers
 
         // GET: api/Cutleries/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Cutlery>> GetCutlery(long id)
+        public async Task<ActionResult<Cutlery>> GetCutlery(int id)
         {
             var cutlery = await _context.Cutlery.FindAsync(id);
 
@@ -62,7 +63,7 @@ namespace WebApplication1.Controllers
         // PUT: api/Cutleries/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCutlery(long id, Cutlery cutlery)
+        public async Task<IActionResult> PutCutlery(int id, Cutlery cutlery)
         {
             if (id != cutlery.Id)
             {
@@ -106,7 +107,7 @@ namespace WebApplication1.Controllers
 
         // DELETE: api/Cutleries/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCutlery(long id)
+        public async Task<IActionResult> DeleteCutlery(int id)
         {
             var cutlery = await _context.Cutlery.FindAsync(id);
             if (cutlery == null)
@@ -120,7 +121,7 @@ namespace WebApplication1.Controllers
             return NoContent();
         }
 
-        private bool CutleryExists(long id)
+        private bool CutleryExists(int id)
         {
             return _context.Cutlery.Any(e => e.Id == id);
         }

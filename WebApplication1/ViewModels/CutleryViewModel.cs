@@ -1,10 +1,13 @@
-﻿namespace WebApplication1.Models
+﻿namespace WebApplication1.ViewModels
 {
-    public class Cutlery
+    public class CutleryViewModel
     {
         public int Id { get; set; }
+
         public string Type { get; set; }
+
         public string Material { get; set; }
+
         public int Price { get; set; }
     }
 }

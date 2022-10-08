@@ -1,0 +1,34 @@
+.basketItemRow {
+    display: flex;
+    align-items: center;
+}
+
+.basketItemRemove {
+    cursor: pointer;
+}
+
+.basketItemDec {
+    cursor: pointer;
+}
+
+.basketItemAdd {
+    cursor: pointer;
+}
+
+.basketItemRow>div {
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+.basketItemTitle {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.basketItem {
+    margin-bottom: 30px;
+}
+
+.basketItemImg {
+    width: 400px;
+}
